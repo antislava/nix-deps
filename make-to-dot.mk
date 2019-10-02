@@ -1,4 +1,4 @@
-SRCS = Makefile extract-stem-github.mk extract-stem-giturl.mk make-to-dot.mk
+SRCS = nix-deps.mk extract-stem-github.mk extract-stem-giturl.mk make-to-dot.mk
 TRGTS = $(SRCS:%=%.png)
 
 .PHONY: all
