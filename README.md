@@ -1,5 +1,5 @@
 **Another** attempt to automate creation and updating of repo `json` data for `nix` (i.e. wrapper around git fetchers) focusing on
-* Simplicity: many solution tend to become somewhat over-engineered; existing tools and simple scripts should be sufficient.
+* Simplicity: many solutions tend to become somewhat over-engineered; existing tools and simple scripts should be sufficient.
 * Ergonomic workflow: minimum copy-pasting, only repo and its owner names need to be typed in in most cases.
 
 (TODO: List existing tools)
@@ -64,5 +64,5 @@ Currently, manually edit the `*.stem.yaml` file
 
 ### Intermediary files
 
-Intermediary files `git.json` and `github.stem.json` are currently kept (specifically using `.SECONDARY` flags in `nix-deps.male` - automatically deleted by `make` otherwise) for now for introspection in case something doesn't work.
+Intermediary files `git.json` and `github.stem.json` are currently kept (specifically using `.SECONDARY` flags in `nix-deps.mk` - automatically deleted by `make` otherwise) for now for introspection in case something doesn't work.
 
