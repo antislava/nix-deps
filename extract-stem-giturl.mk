@@ -1,9 +1,11 @@
 # Extract *.stem.yaml files from example github.json files by converting these to yaml and commenting out rev and sha256 fields
 # *Uncomment* rev it if is supposed to be fixed
 
-# SRCS=$(shell find . -name 'github.json')
+ROOT = ./
+
+# SRCS:=$(wildcard **/github.json')
 # inlcuding only files containing field "url"
-SRCS  = $(shell ag -G 'github\.json' '\"url\":.*github' | sed 's|\([^:]*\):.*|\1|')
+SRCS := $(shell ag -G 'github\.json' '\"url\":.*github' $(ROOT) | sed 's|\([^:]*\):.*|\1|')
 TRGTS = $(SRCS:%.json=%.stem.yaml)
 
 .PHONY: all

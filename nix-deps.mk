@@ -1,5 +1,9 @@
-# SRCS  = $(shell find . -name '*.stem.yaml')
-SRCS  = $(shell ag -G '.*\.stem.yaml' 'owner:' | sed 's|\([^:]*\):.*|\1|')
+ROOT = ./
+# This also works!
+# ROOT = ../reflex-graphs/dep/
+
+# SRCS := $(wildcard **/*.stem.yaml)
+SRCS := $(shell ag -G '.*\.stem.yaml' 'owner:' $(ROOT) | sed 's|\([^:]*\):.*|\1|')
 TRGTS = $(SRCS:%.stem.yaml=%.json)
 
 GITJSON  = $(SRCS:%github.stem.yaml=%git.json)
@@ -26,13 +30,31 @@ $(TRGTS):
 %/github.json : %/github.stem.json %/git.json
 	jq -s '.[0] * .[1] | {owner, repo, rev, sha256, fetchSubmodules}' $+ > $@
 
-%/git.json : %/github.stem.json
-	jq '"nix-prefetch-git https://github.com/" + .owner + "/" + .repo + (if (.rev // "") == "" then "" else (" --rev " + .rev) end) + (if .fetchSubmodules then " --fetch-submodules" else "" end)' < $< | xargs sh -c > $@
+# Initial attempt
+# %/git.json : %/github.stem.json
+# 	jq '"nix-prefetch-git https://github.com/" + .owner + "/" + .repo + " --rev " + (.rev // "refs/heads/master") + (if .fetchSubmodules then " --fetch-submodules" else "" end)' < $< | xargs sh -c > $@
 
-	# jq '"nix-prefetch-git https://github.com/" + .owner + "/" + .repo + " --rev " + (.rev // "refs/heads/master") + (if .fetchSubmodules then " --fetch-submodules" else "" end)' < $< | xargs sh -c > $@
+# Adding rev logic
+# %/git.json : %/github.stem.json
+# 	jq '"nix-prefetch-git https://github.com/" + .owner + "/" + .repo + (if (.rev // "") == "" then "" else (" --rev " + .rev) end) + (if .fetchSubmodules then " --fetch-submodules" else "" end)' < $< | xargs sh -c > $@
 
+%/git.json : %/github.stem.json ./nix-prefetch-git.jq
+	jq -f nix-prefetch-git.jq < $< | xargs sh -c > $@
 
 %/github.stem.json : %/github.stem.yaml
 	yq . < $< > $@
 
 # yq '"$$(nix-prefetch-git https://github.com/"+.owner+"/"+.repo+" --rev "+.rev +")"' < $< | shab > $@
+
+DEFAULT_NIXS = $(SRCS:%/github.stem.yaml=%/default.nix)
+
+$(DEFAULT_NIXS):
+
+all-default-nix: $(DEFAULT_NIXS)
+
+# %/default.nix: %/github.json
+# 	cp -n ./fetchByGithubJson.nix $(@D)/default.nix
+
+# Overwriting default.nix each time the template changes! Not totally sure it is optimal...
+%/default.nix: ./fetchByGithubJson.nix
+	cp ./fetchByGithubJson.nix $(@D)/default.nix

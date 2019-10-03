@@ -11,9 +11,11 @@
 #
 # *Uncomment* rev it if is supposed to be fixed
 
-# SRCS=$(shell find . -name 'github.json')
+ROOT = ./
+
+# SRCS:=$(wildcard **/github.json')
 # inlcuding only files containing field "owner"
-SRCS  = $(shell ag -G github.json '\"owner\":' | sed 's|\([^:]*\):.*|\1|')
+SRCS := $(shell ag -G github.json '\"owner\":' $(ROOT) | sed 's|\([^:]*\):.*|\1|')
 TRGTS = $(SRCS:%.json=%.stem.yaml)
 
 .PHONY: all
