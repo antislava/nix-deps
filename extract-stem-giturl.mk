@@ -22,3 +22,4 @@ $(TRGTS):
 
 %/github.stem.yaml : %/github.json
 	yq . -y < $< | sed 's/^rev:/# rev:/; s/^sha256:/# sha256:/; s/^date:/# date:/' > $@
+	cp $< $<.bak
