@@ -1,0 +1,7 @@
+{
+  "owner": "dhall-lang",
+  "repo": "dhall-haskell",
+  "rev": "5b136dfa2c42ba41a57aa495091b598cc6414c9f",
+  "sha256": "10ram3mwily9kgkh40hmq78h1704rp7vrnd2x7vjnjjj1p3sb66j",
+  "fetchSubmodules": false
+}

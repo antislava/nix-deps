@@ -1,0 +1,5 @@
+{
+  "owner": "NixOS",
+  "repo": "nixpkgs-channels",
+  "branch": "nixos-unstable-small"
+}
