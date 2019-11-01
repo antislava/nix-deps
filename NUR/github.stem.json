@@ -1,0 +1,5 @@
+{
+  "owner": "nix-community",
+  "repo": "NUR",
+  "fetchSubmodules": false
+}
