@@ -1,7 +1,7 @@
 {
   "url": "https://github.com/nix-community/NUR",
-  "rev": "7fdbd1dc8045dd00742bea425483fa0caf2ac7ec",
-  "date": "2019-11-01T04:30:35+00:00",
-  "sha256": "0z468181jsxcimndi811z7ldvqhi125br6kb72xk50j1bg9iha0l",
+  "rev": "dac468d0a5ad374219efce8ee75ceeaa45785080",
+  "date": "2019-11-20T05:44:09+00:00",
+  "sha256": "0k290ynqw5q3zv4pylyzzll5ykf1cng53iy7j1cpk2zrw4rhaq46",
   "fetchSubmodules": false
 }
