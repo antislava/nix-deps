@@ -1,7 +1,7 @@
 {
   "owner": "antislava",
   "repo": "nix-dhall",
-  "rev": "82797353328a047cf6c13c522919fcd865912de0",
-  "sha256": "02dim6yjq62iv522kwlr6zmad6kzn3m2ymqi76allb4az6gk4k9i",
+  "rev": "3ed96e0577350187ab1f51d8583b94ebef4495fb",
+  "sha256": "1qcwsjmpd6vh19cfd9wnzkh42qbi3rqhjfc82azs495gm0q9nh7p",
   "fetchSubmodules": false
 }
