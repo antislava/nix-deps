@@ -1,9 +1,11 @@
+# How up to date are NixOS channels?: https://howoldis.herokuapp.com/
 owner: NixOS
 # repo: nixpkgs
 repo: nixpkgs-channels
 # branch: nixos-unstable-small # TODO This option doesn't work - TOFIX!
-# rev: refs/heads/nixos-unstable-small # Results rarely cached!
+rev: refs/heads/nixos-unstable-small # Results rarely cached!
 # rev: refs/heads/nixos-unstable # Default branch
+# rev: 0193158b324
 # rev: 80223b04c827480ffbd14a176aa812f30943a64b
 # rev: bf3360cdcfee144ce349457b248de3b93aee3c3d
 # sha256: 0dwxk6hhqvma9l8nfpg01qdlz6iswnswj8as0d5yim1wmvplg6sy
