@@ -1,3 +1,5 @@
+$(info $(A))
+
 ROOT = ./
 # This also works:
 # ROOT = ../reflex-graphs/dep/
@@ -27,11 +29,14 @@ all: $(TRGTS)
 # Declaring targets for make auto-complete
 $(TRGTS):
 
+# make NOCHECK=true list-targets
+ifneq ($(NOCHECK), true)
 GIT_STATUS := $(shell git diff --exit-code --shortstat 1>/dev/null; echo $$?)
 #             $(shell git diff --exit-code --shortstat 1>&2; echo $$?)
 # https://stackoverflow.com/questions/5139290/how-to-check-if-theres-nothing-to-be-committed-in-the-current-branch
 ifneq ($(GIT_STATUS), 0)
   $(error Git repo is not clean: $(shell git diff --exit-code --shortstat))
+endif
 endif
 
 %/github.json : %/github.stem.json %/git.json
