@@ -1,5 +1,3 @@
-$(info $(A))
-
 ROOT = ./
 # This also works:
 # ROOT = ../reflex-graphs/dep/

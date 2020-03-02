@@ -1,7 +1,7 @@
 {
   "owner": "nix-community",
   "repo": "NUR",
-  "rev": "335ab209797f4ba4f3082ea422fab2f8fa50dd30",
-  "sha256": "1hx3jiwiw68k7qk2c0w1vrb042kl1vrqd6y8f3znvl1wdqqws3h6",
+  "rev": "8b3e522d8cb0dc06b6a6a3db10e9027f71453a2a",
+  "sha256": "07z0fx9d6jhdfqglbx1z7hfcfzfjp76baklawdinz47xcp7qf1fc",
   "fetchSubmodules": false
 }
