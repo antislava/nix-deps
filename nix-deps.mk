@@ -1,5 +1,5 @@
 ROOT = ./
-# This also works!
+# This also works:
 # ROOT = ../reflex-graphs/dep/
 
 # SRCS := $(wildcard **/*.stem.yaml)
@@ -9,17 +9,17 @@ TRGTS = $(SRCS:%.stem.yaml=%.json)
 GITJSON  = $(SRCS:%github.stem.yaml=%git.json)
 STEMJSON = $(SRCS:%github.stem.yaml=%github.stem.json)
 
-.PHONY: all
-all: $(TRGTS)
-
 .PHONY: list-targets
 list-targets:
 	@echo $(TRGTS)
 
+.PHONY: all
+all: $(TRGTS)
+
 .DELETE_ON_ERROR:
 # * [Prevent GNU make from always removing files. It says things like “rm …” or “Removing intermediate files…”.](http://www.thinkplexx.com/learn/howto/build-chain/make-based/prevent-gnu-make-from-always-removing-files-it-says-things-like-rm-or-removing-intermediate-files)
 # * [GNU make: Special Targets](https://www.gnu.org/software/make/manual/html_node/Special-Targets.html)
-# NOTE! autocomplete notworking without specified SECONDARY
+# NOTE! autocomplete not working without specified SECONDARY
 .SECONDARY: $(GITJSON)
 .SECONDARY: $(STEMJSON)
 .SECONDARY:
@@ -27,16 +27,18 @@ list-targets:
 # Declaring targets for make auto-complete
 $(TRGTS):
 
+# make NOCHECK=true list-targets
+ifneq ($(NOCHECK), true)
+GIT_STATUS := $(shell git diff --exit-code --shortstat 1>/dev/null; echo $$?)
+#             $(shell git diff --exit-code --shortstat 1>&2; echo $$?)
+# https://stackoverflow.com/questions/5139290/how-to-check-if-theres-nothing-to-be-committed-in-the-current-branch
+ifneq ($(GIT_STATUS), 0)
+  $(error Git repo is not clean: $(shell git diff --exit-code --shortstat))
+endif
+endif
+
 %/github.json : %/github.stem.json %/git.json
 	jq -s '.[0] * .[1] | {owner, repo, rev, sha256, fetchSubmodules}' $+ > $@
-
-# Initial attempt
-# %/git.json : %/github.stem.json
-# 	jq '"nix-prefetch-git https://github.com/" + .owner + "/" + .repo + " --rev " + (.rev // "refs/heads/master") + (if .fetchSubmodules then " --fetch-submodules" else "" end)' < $< | xargs sh -c > $@
-
-# Adding rev logic
-# %/git.json : %/github.stem.json
-# 	jq '"nix-prefetch-git https://github.com/" + .owner + "/" + .repo + (if (.rev // "") == "" then "" else (" --rev " + .rev) end) + (if .fetchSubmodules then " --fetch-submodules" else "" end)' < $< | xargs sh -c > $@
 
 %/git.json : %/github.stem.json ./nix-prefetch-git.jq
 	jq -f nix-prefetch-git.jq < $< | xargs sh -c > $@
