@@ -1,7 +1,9 @@
 {
   "url": "https://github.com/snowleopard/alga",
-  "rev": "e0aa4beec88d1c1fa746603d4af8b6061e643886",
-  "date": "2019-11-18T23:21:44+00:00",
-  "sha256": "0vsdqk82pwj60wfjdjpqs0c6zfjaxsp3nj3pba5a0380p30idpm6",
-  "fetchSubmodules": false
+  "rev": "7c23bc6e045d504258d71131fb0be67e942b849e",
+  "date": "2020-02-18T00:16:25+00:00",
+  "sha256": "18hnzzhcrhqalv8wyfvv1h9cx7sablsg9sx9h2wiym6w3skmk4fv",
+  "fetchSubmodules": false,
+  "deepClone": false,
+  "leaveDotGit": false
 }
