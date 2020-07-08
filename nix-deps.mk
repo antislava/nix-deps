@@ -34,7 +34,7 @@ GIT_STATUS := $(shell $(GIT_STATUS_CMD) 1>/dev/null; echo $$?)
 #             $(shell $(GIT_STATUS_CMD) 1>&2       ; echo $$?)
 # https://stackoverflow.com/questions/5139290/how-to-check-if-theres-nothing-to-be-committed-in-the-current-branch
 ifneq ($(GIT_STATUS), 0)
-  $(error Git repo is not clean: $(shell $(GIT_STATUS_CMD)))
+  $(error Git repo is not clean. Use 'make NOCHECK=true'. $(shell $(GIT_STATUS_CMD)))
 endif
 endif
 

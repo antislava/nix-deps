@@ -1,7 +1,10 @@
 {
   "url": "https://github.com/antislava/nix-dhall",
-  "rev": "3ed96e0577350187ab1f51d8583b94ebef4495fb",
-  "date": "2020-02-20T10:01:13+01:00",
-  "sha256": "1qcwsjmpd6vh19cfd9wnzkh42qbi3rqhjfc82azs495gm0q9nh7p",
-  "fetchSubmodules": false
+  "rev": "9cbff6082a5da4eb1b12c7c4ee73bd3ac0bb5692",
+  "date": "2020-07-08T16:41:27+02:00",
+  "path": "/nix/store/dy74crkaqi30zgysg2f5ml33dv4pa40p-nix-dhall",
+  "sha256": "08pwvm0bjmdkjfi9d82mlxkpkkrhs9bs3987xhp3crwyazd02b32",
+  "fetchSubmodules": false,
+  "deepClone": false,
+  "leaveDotGit": false
 }

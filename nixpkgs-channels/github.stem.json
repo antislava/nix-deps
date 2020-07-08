@@ -1,5 +1,6 @@
 {
   "owner": "NixOS",
   "repo": "nixpkgs-channels",
-  "rev": "refs/heads/nixos-unstable"
+  "rev": "cd555fdab23",
+  "local": "/r-cache/git/github.com"
 }
