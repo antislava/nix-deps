@@ -1,6 +1,6 @@
 {
   "owner": "NixOS",
   "repo": "nixpkgs-channels",
-  "rev": "cd555fdab23",
-  "local": "/r-cache/git/github.com"
+  "rev": "e072276cf2d",
+  "mirror": "/r-cache/git/github.com"
 }

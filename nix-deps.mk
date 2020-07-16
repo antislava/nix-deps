@@ -42,6 +42,7 @@ endif
 	jq -s '.[0] * .[1] | {owner, repo, rev, sha256, fetchSubmodules}' $+ > $@
 
 %/git.json : %/github.stem.json ./nix-prefetch-git.jq
+	git --git-dir=/r-cache/git/github.com/NixOS/nixpkgs-channels fetch
 	jq -f nix-prefetch-git.jq < $< | xargs sh -c > $@
 
 %/github.stem.json : %/github.stem.yaml
