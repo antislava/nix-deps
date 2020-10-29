@@ -1,0 +1,10 @@
+{
+  "url": "https://github.com/antislava/nix-pandoc",
+  "rev": "4b4f7a5c2a57d94a5efca48f2252f1b4268e21fb",
+  "date": "2020-10-29T00:55:53+01:00",
+  "path": "/nix/store/3fxwwvxsd6xndvvychkvmnc5gib429xn-nix-pandoc",
+  "sha256": "0fy0mzc6wbrib474qz7wlv5v7qg4xmx7mdlqnv53lir2b408gzmv",
+  "fetchSubmodules": false,
+  "deepClone": false,
+  "leaveDotGit": false
+}

@@ -1,6 +1,6 @@
 {
   "owner": "NixOS",
   "repo": "nixpkgs-channels",
-  "rev": "refs/heads/nixos-unstable-small",
+  "branch": "nixos-unstable-small",
   "mirror": "/r-cache/git/github.com"
 }

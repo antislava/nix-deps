@@ -3,8 +3,11 @@
 owner: NixOS
 # repo: nixpkgs
 repo: nixpkgs-channels
-# branch: nixos-unstable-small # TODO This option doesn't work - TOFIX!
-rev: refs/heads/nixos-unstable-small # Results rarely cached!
+
+branch: nixos-unstable-small # TODO This option doesn't work - TOFIX!
+
+# rev: refs/heads/nixos-unstable-small # Results rarely cached!
+
 # rev: refs/heads/nixos-unstable # Default branch
 
 # See build status: https://hydra.nixos.org/job/nixos/unstable-small/tested/all

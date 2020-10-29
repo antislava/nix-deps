@@ -1,7 +1,7 @@
 {
   "owner": "antislava",
   "repo": "nix-pandoc",
-  "rev": "fee79954f9aa30a23c4d9b5d585140097fc1089c",
-  "sha256": "0j7q8zs658507li9y7n4i9mwi5lapl52p71wryzf6j5xc6afwpr2"
+  "rev": "4b4f7a5c2a57d94a5efca48f2252f1b4268e21fb",
+  "sha256": "0fy0mzc6wbrib474qz7wlv5v7qg4xmx7mdlqnv53lir2b408gzmv",
+  "fetchSubmodules": false
 }
-
