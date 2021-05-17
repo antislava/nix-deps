@@ -2,6 +2,5 @@
   "owner": "NixOS",
   "repo": "nixpkgs",
   "branch": "nixos-unstable-small",
-  "rev": "6f630a97e15",
   "mirror": "/r-cache/git/github.com"
 }

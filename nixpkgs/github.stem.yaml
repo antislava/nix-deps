@@ -11,7 +11,7 @@ branch: nixos-unstable-small # TODO This option doesn't work - TOFIX!
 # rev: refs/heads/nixos-unstable # Default branch
 
 # See build status: https://hydra.nixos.org/job/nixos/unstable-small/tested/all
-rev: 6f630a97e15
+# rev: 6f630a97e15
 # rev: 0193158b324
 # rev: cd555fdab23
 # rev: e072276cf2d
